@@ -9,8 +9,35 @@
     <!-- Bootstrap core CSS -->
     <link href="{{URL::asset("css/bootstrap.min.css")}}" rel="stylesheet" >
 
+<script>
+    function showProcess() {
+        document.getElementById("circle").style.display = "block";
 
+
+    }
+</script>
     <style>
+        #circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 150px;
+        }
+
+        .loader {
+            width: calc(100% - 0px);
+            height: calc(100% - 0px);
+            border: 8px solid #162534;
+            border-top: 8px solid #09f;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {transform: rotate(360deg);}
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -58,9 +85,10 @@
             <input type="text"  class="form-control" name="text" placeholder="Bekliyoruz.." required autocomplete="off">
 
             <br>
-            <input type="submit" class="btn btn-lg btn-success" value="Yolla Gelsin">
+            <input type="submit" class="btn btn-lg btn-success" value="Yolla Gelsin" onclick="showProcess()">
 
         </form>
+
         @if(!empty($errors->first()))
             <div class="">
                 <div class="alert alert-success">
@@ -70,6 +98,12 @@
             @endif
 
         </p>
+            <div id="circle" style="display: none">
+                <div class="loader">
+                    <div class="loader">
+                        <div class="loader">
+                            <div class="loader"></div></div></div>
+                </div></div>
             <p class="lead">
                 6 farklı kategori içerisinden girilen metnin hangi kategoriye ait olduğunu tahmin eden 4 farklı algoritma kullanılıyor. </p>
             <p class="lead">
