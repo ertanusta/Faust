@@ -52,7 +52,7 @@ def norm_doc(single_doc):
 path=sys.argv[1]
 modelSelect=sys.argv[2]
 text=""
-f = open("C:/wamp64/www/Faust/storage/dataTest/"+path+".txt", "r", encoding='utf8')
+f = open("/var/www/html/Faust/storage/dataTest/"+path+".txt", "r", encoding='utf8')
 for i in f:
     text=text+i+" "
 f.close()
