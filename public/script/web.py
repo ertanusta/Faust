@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 import numpy as np
 import re
 import sys
@@ -12,8 +14,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report
 import pickle
 
-
-stop_word_list=["﻿şer","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
+stop_word_list=["﻿er","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
                 "bazı","belki","ben","benden","beni","benim","beri","beş","bile","bin","bir","birçok",
                 "biri","birkaç","birkez","birşey","birşeyi","biz","bize","bizden","bizi","bizim","böyle",
                 "böylece","bu","buna","bunda","bundan","bunlar","bunları","bunların","bunu","bunun","burada",
@@ -35,16 +36,16 @@ stop_word_list=["﻿şer","acaba","altmış","altı","ama","ilk","ancak","arada"
     ,"31","ocak","şubat","mart","nisan","mayıs","haziran","temmuz","ağustos","eylül","ekim","kasım","aralık","hafta",
                 "ay","gün","saat",":",",",";","!","?","-","_","/","*","+","(",")","{","}","%","&","#",'"',"'","@","."]
 def norm_doc(single_doc):
-
+    
     single_doc = re.sub(" \d+", " ", single_doc)
-
+    
     single_doc = single_doc.lower()
     single_doc = single_doc.strip()
-
+    
     single_doc=single_doc.split(" ")
-
+    
     filtered_tokens = [token for token in single_doc if token not in stop_word_list]
-
+    
     single_doc = ' '.join(filtered_tokens)
     return single_doc
 path=sys.argv[1]
