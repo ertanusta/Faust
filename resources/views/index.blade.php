@@ -34,7 +34,9 @@
     <header class="masthead mb-auto">
         <div class="inner">
             <h3 class="masthead-brand"><a href="{{route('index')}}">Faust</a></h3>
-
+            <nav class="nav nav-masthead justify-content-center">
+                <a href="https://github.com/ertanusta" class=""><i class="fa fa-github fa-2x"></i></a>
+            </nav>
         </div>
     </header>
 
@@ -44,10 +46,21 @@
         <p class="lead">
             <form class="form" action="{{route('process')}}" method="post">
             {{ csrf_field() }}
-            <input type="text"  class="form-control" name="text" placeholder="Bekliyoruz..">
+            <div class="form-group">
+                <label for="sel1">Algoritma Seçimi:</label>
+                <select class="form-control" name="model" id="sel1">
+                    <option value="0">Random Forest Classifier</option>
+                    <option value="1">Naive Bayes Classifier</option>
+                    <option value="2">Linear Support Vector Machine</option>
+                    <option value="3">Logistic Regression</option>
+                </select>
+            </div>
+            <input type="text"  class="form-control" name="text" placeholder="Bekliyoruz.." required autocomplete="off">
+
             <br>
             <input type="submit" class="btn btn-lg btn-success" value="Yolla Gelsin">
-            </form>
+
+        </form>
         @if(!empty($errors->first()))
             <div class="">
                 <div class="alert alert-success">
@@ -66,14 +79,10 @@
             <p class="lead">
                 Kategoriler; Ekonomi, Kültür ve Sanat, Spor, Siyaset, Teknoloji, Sağlık.
             </p>
-    <p class="lead"> Kaynak kodlarını yakında Github da paylaşacağım. </p>
+
     </main>
 
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            Ertan USTA <a href="https://github.com/ertanusta" class=""><i class="fa fa-github"></i></a>
-             </div>
-    </footer>
+
 </div>
 
 
