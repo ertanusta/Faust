@@ -23,9 +23,9 @@ class ProcessController extends Controller
                 'path'=>$process->id,
                 'model'=>(int)$request->get('model')
             ]);
-//
-//            $process=Process::find($process->id);
-//            return redirect()->back()->withErrors('Bulunan Kategori: '.$process->prediction);
+
+            $process=Process::find($process->id);
+            return redirect()->back()->withErrors('Bulunan Kategori: '.$process->prediction);
 
 
 
