@@ -9,7 +9,9 @@ use App\Process;
 class ProcessController extends Controller
 {
     public function process(Request $request){
-            $text=$request->get('text');
+
+
+            $text=preg_replace('/[^A-Za-z0-9\. -]/', '', $request->get('text'));
             //$text="süper toto süper liginde büyük heyecan galatasaray ile fenerbahçe arasında bugün gerçekleşecek olan müsabakaya olan heyecan büyük";
             $process=Process::create(['text'=>$text]);
 
@@ -21,9 +23,9 @@ class ProcessController extends Controller
                 'path'=>$process->id,
                 'model'=>(int)$request->get('model')
             ]);
-
-            $process=Process::find($process->id);
-            return redirect()->back()->withErrors('Bulunan Kategori: '.$process->prediction);
+//
+//            $process=Process::find($process->id);
+//            return redirect()->back()->withErrors('Bulunan Kategori: '.$process->prediction);
 
 
 
