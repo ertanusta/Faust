@@ -15,7 +15,7 @@ class CreateProcessesTable extends Migration
 
         Schema::create('processes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
+            $table->text('text');
             $table->string('prediction')->nullable();
             $table->timestamps();
         });
