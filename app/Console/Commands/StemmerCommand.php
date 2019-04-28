@@ -42,7 +42,7 @@ class StemmerCommand extends Command
     {
         $path=$this->argument('path');
         $model=$this->argument('model');
-        $process=new Process("C:/Users/ertan/AppData/Local/Programs/Python/Python37/python.exe ".public_path()."\script\web.py ".'"'.$path.'"'.' "'.$model.'"');
+        $process=new Process("python ".public_path()."\script\web.py ".'"'.$path.'"'.' "'.$model.'"');
         $process->run();
 
         if (!$process->isSuccessful()) {
