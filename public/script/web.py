@@ -70,16 +70,16 @@ normalized_documents = norm_docs(docs)
 # 2=>Linear Support Vector Machine
 # 3=>Logistic Regression
 if(modelSelect=="0"):
-    with open('C:\wamp64\www\Faust\public\script\randomForest', 'rb') as training_model:
+    with open('/var/www/html/Faust/public/script/randomForest', 'rb') as training_model:
         model = pickle.load(training_model)
 elif(modelSelect=="1"):
-    with open('C:\wamp64\www\Faust\public\script\bayes', 'rb') as training_model:
+    with open('/var/www/html/Faust/public/script/bayes', 'rb') as training_model:
         model = pickle.load(training_model)
 elif(modelSelect=="2"):
-    with open('C:\wamp64\www\Faust\public\script\linear', 'rb') as training_model:
+    with open('/var/www/html/Faust/public/script/linear', 'rb') as training_model:
         model = pickle.load(training_model)
 elif(modelSelect=="3"):
-    with open('C:\wamp64\www\Faust\public\script\logistic', 'rb') as training_model:
+    with open('/var/www/html/Faust/public/script/logistic', 'rb') as training_model:
         model = pickle.load(training_model)
 print(model.predict([str(normalized_documents)])[0])
 
