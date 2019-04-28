@@ -60,7 +60,7 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand"><a href="{{route('index')}}">Faust</a></h3>
+            <h3 class="masthead-brand"><a href="https://www.youtube.com/watch?v=VMw0EjLFPXw">Faust</a></h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a href="https://github.com/ertanusta" class=""><i class="fa fa-github fa-2x"></i></a>
             </nav>
