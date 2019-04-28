@@ -12,9 +12,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report
 import pickle
 
-#Tüm veri seti içerisinde temizleme yaparak yeni bir .txt oluşturur.
-#Stop word iyi çalışıyor sadece noktolama işarelerini de eklemelisin
-#
+
 stop_word_list=["﻿şer","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
                 "bazı","belki","ben","benden","beni","benim","beri","beş","bile","bin","bir","birçok",
                 "biri","birkaç","birkez","birşey","birşeyi","biz","bize","bizden","bizi","bizim","böyle",
@@ -37,16 +35,16 @@ stop_word_list=["﻿şer","acaba","altmış","altı","ama","ilk","ancak","arada"
     ,"31","ocak","şubat","mart","nisan","mayıs","haziran","temmuz","ağustos","eylül","ekim","kasım","aralık","hafta",
                 "ay","gün","saat",":",",",";","!","?","-","_","/","*","+","(",")","{","}","%","&","#",'"',"'","@","."]
 def norm_doc(single_doc):
-    #belirlenen özel karakterleri ve sayıları temizle
+
     single_doc = re.sub(" \d+", " ", single_doc)
-    # küçük harflere çevir
+
     single_doc = single_doc.lower()
     single_doc = single_doc.strip()
-    # token'larına ayır
+
     single_doc=single_doc.split(" ")
-    # Stop-word listesindeki kelimeler hariç al
+
     filtered_tokens = [token for token in single_doc if token not in stop_word_list]
-    # Dokümanı tekrar oluştur
+
     single_doc = ' '.join(filtered_tokens)
     return single_doc
 path=sys.argv[1]
