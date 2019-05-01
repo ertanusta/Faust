@@ -12,7 +12,6 @@ class ProcessController extends Controller
 
 
             $text=preg_replace('/[^A-Za-z0-9\. -]/', '', $request->get('text'));
-            //$text="süper toto süper liginde büyük heyecan galatasaray ile fenerbahçe arasında bugün gerçekleşecek olan müsabakaya olan heyecan büyük";
             $process=Process::create(['text'=>$text]);
 
             $result=Artisan::call('process:tokenizer',[
@@ -25,7 +24,15 @@ class ProcessController extends Controller
             ]);
 
             $process=Process::find($process->id);
-            return redirect()->back()->withErrors('Bulunan Kategori: '.$process->prediction);
+            $prediction=explode(",",$process->prediction);
+            return redirect()->back()->withErrors("Tahminler:".
+                                                            "<br>Ekonomi: ".$prediction[0].
+                                                            "<br>Kültür ve Sanat: ".$prediction[1].
+                                                            "<br>Magazin: ".$prediction[2].
+                                                            "<br>Sağlık: ".$prediction[3].
+                                                            "<br>Siyaset: ".$prediction[4].
+                                                            "<br>Spor: ".$prediction[5].
+                                                            "<br>Tekonoloji: ".$prediction[6]);
 
 
 
