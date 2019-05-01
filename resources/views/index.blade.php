@@ -19,7 +19,7 @@
     <style>
         #circle {
             position: absolute;
-            top: 50%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%,-50%);
             width: 150px;
@@ -57,21 +57,33 @@
     <link href="{{URL::asset("css/cover.css")}}" rel="stylesheet">
 </head>
 <body class="text-center">
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="cover-container d-flex w-50 h-75 p-3 mx-auto flex-column ">
     <header class="masthead mb-auto">
         <div class="inner">
             <h3 class="masthead-brand"><a href="https://www.youtube.com/watch?v=VMw0EjLFPXw">Faust</a></h3>
             <nav class="nav nav-masthead justify-content-center">
-                <a href="https://github.com/ertanusta" class=""><i class="fa fa-github fa-2x"></i></a>
+
+                &nbsp;&nbsp;&nbsp;
+                <a href="https://github.com/ertanusta" class="nav"><i class="fa fa-github fa-3x"></i></a>
             </nav>
         </div>
     </header>
 
+
     <main role="main" class="inner cover">
-        <h1 class="cover-heading">Dene Bakalım.</h1>
-        <p class="lead">Hangi sınıfa ait olduğunu merak ettiğiniz metni aşağıdaki kutuya girebilirsiniz. </p>
         <p class="lead">
-            <form class="form" action="{{route('process')}}" method="post">
+        <div id="circle" style="display: none;">
+            <div class="loader">
+                <div class="loader">
+                    <div class="loader">
+                        <div class="loader"></div></div></div>
+            </div></div>
+        </p>
+        <h1 class="cover-heading">Faust Metin Sınıflandırma Aracı.</h1>
+
+        <p class="lead">
+
+        <form class="form" action="{{route('process')}}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="sel1">Algoritma Seçimi:</label>
@@ -82,37 +94,26 @@
                     <option value="3">Logistic Regression</option>
                 </select>
             </div>
+            <div class="form-group">
             <input type="text"  class="form-control" name="text" placeholder="Bekliyoruz.." required autocomplete="off">
-
-            <br>
-            <input type="submit" class="btn btn-lg btn-success" value="Yolla Gelsin" onclick="showProcess()">
+            </div>
+            <input type="submit" class="btn btn-lg btn-success" value="Tahmin" onclick="showProcess()">
 
         </form>
 
+
+        </p>
+        <p class="lead">
         @if(!empty($errors->first()))
             <div class="">
-                <div class="alert alert-success">
-                    <span>{{ $errors->first() }}</span>
+                <div class="alert alert-secondary">
+                    <span>{!! $errors->first() !!}</span>
                 </div>
             </div>
             @endif
-
         </p>
-            <div id="circle" style="display: none">
-                <div class="loader">
-                    <div class="loader">
-                        <div class="loader">
-                            <div class="loader"></div></div></div>
-                </div></div>
-            <p class="lead">
-                6 farklı kategori içerisinden girilen metnin hangi kategoriye ait olduğunu tahmin eden 4 farklı algoritma kullanılıyor. </p>
-            <p class="lead">
-                Kullanılan algoritmalar; Random Forest Classifier,
-                Naive Bayes Classifier, Linear Support Vector Machine, Logistic Regression.
-            </p>
-            <p class="lead">
-                Kategoriler; Ekonomi, Kültür ve Sanat, Spor, Siyaset, Teknoloji, Sağlık.
-            </p>
+
+
 
     </main>
 
