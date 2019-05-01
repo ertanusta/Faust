@@ -88,7 +88,7 @@
             <div class="form-group">
                 <label for="sel1">Algoritma Seçimi:</label>
                 <select class="form-control" name="model" id="sel1">
-                    <option value="0">Random Forest Classifier</option>
+
                     <option value="1">Naive Bayes Classifier</option>
                     <option value="2">Linear Support Vector Machine</option>
                     <option value="3">Logistic Regression</option>
