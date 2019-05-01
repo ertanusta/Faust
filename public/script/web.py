@@ -80,5 +80,7 @@ elif(modelSelect=="2"):
 elif(modelSelect=="3"):
     with open('/var/www/html/Faust/public/script/logistic', 'rb') as training_model:
         model = pickle.load(training_model)
-print(model.predict([str(normalized_documents)])[0])
+result=model.predict_proba([str(normalized_documents)])
+for i in result[0]:
+    print(round(i*100,2),",")
 
