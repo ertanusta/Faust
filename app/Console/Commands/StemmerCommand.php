@@ -50,12 +50,6 @@ class StemmerCommand extends Command
         }
 
         $result=$process->getOutput();
-        if($result==0) $result="Ekonomi";
-        elseif ($result==1) $result="Kültür ve Sanat";
-        elseif ($result==2) $result="Sağlık";
-        elseif ($result==3) $result="Siyaset";
-        elseif ($result==4) $result="Spor";
-        elseif ($result==5) $result="Teknoloji";
         $process=\App\Process::find($path);
         $process->prediction=$result;
         $process->save();
