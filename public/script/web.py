@@ -13,7 +13,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report
 import pickle
-from keras.models import model_from_json
+from Keras.models import model_from_json
 
 stop_word_list=["﻿er","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
                 "bazı","belki","ben","benden","beni","benim","beri","beş","bile","bin","bir","birçok",
