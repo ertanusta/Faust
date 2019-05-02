@@ -70,7 +70,7 @@ normalized_documents = norm_docs(docs)
 # 2=>Linear Support Vector Machine
 # 3=>Logistic Regression
 if(modelSelect=="0"):
-    with open('/var/www/html/Faust/public/script/keras.json', 'r') as f:
+    with open('/var/www/html/Faust/public/script/keras.json', 'rb') as f:
         model = model_from_json(f.read())
     model.load_weights('/var/www/html/Faust/public/script/keras.h5')
     vectorizer = pickle.load(open("/var/www/html/Faust/public/script/vectorizer.pickle", "rb"))
