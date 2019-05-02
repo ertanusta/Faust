@@ -26,13 +26,13 @@ class ProcessController extends Controller
             $process=Process::find($process->id);
             $prediction=explode(",",$process->prediction);
             return redirect()->back()->withErrors("Tahminler:".
-                                                            "<br>Ekonomi: ".$prediction[0].
-                                                            "<br>Kültür ve Sanat: ".$prediction[1].
-                                                            "<br>Magazin: ".$prediction[2].
-                                                            "<br>Sağlık: ".$prediction[3].
-                                                            "<br>Siyaset: ".$prediction[4].
-                                                            "<br>Spor: ".$prediction[5].
-                                                            "<br>Tekonoloji: ".$prediction[6]);
+                                                            "<br>Ekonomi: %".$prediction[0].
+                                                            "<br>Kültür ve Sanat: %".$prediction[1].
+                                                            "<br>Magazin: %".$prediction[2].
+                                                            "<br>Sağlık: %".$prediction[3].
+                                                            "<br>Siyaset: %".$prediction[4].
+                                                            "<br>Spor: %".$prediction[5].
+                                                            "<br>Tekonoloji: %".$prediction[6]);
 
 
 
