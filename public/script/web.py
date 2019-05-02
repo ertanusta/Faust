@@ -77,7 +77,7 @@ if(modelSelect=="0"):
     test = vectorizer.transform([str(normalized_documents)])
     result = model.predict(test)
     for i in result[0]:
-        print(round(float(i), 3),",")
+        print(round(float(i)*100, 3),",")
 
 elif(modelSelect=="1"):
     with open('/var/www/html/Faust/public/script/bayes', 'rb') as training_model:
