@@ -13,6 +13,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report
 import pickle
+from keras.models import model_from_json
 
 stop_word_list=["﻿er","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
                 "bazı","belki","ben","benden","beni","benim","beri","beş","bile","bin","bir","birçok",
@@ -69,18 +70,31 @@ normalized_documents = norm_docs(docs)
 # 2=>Linear Support Vector Machine
 # 3=>Logistic Regression
 if(modelSelect=="0"):
-    with open('/var/www/html/Faust/public/script/randomForest', 'rb') as training_model:
-        model = pickle.load(training_model)
+    with open('/var/www/html/Faust/public/script/keras.json', 'r') as f:
+        model = model_from_json(f.read())
+    model.load_weights('/var/www/html/Faust/public/script/keras.h5')
+    vectorizer = pickle.load(open("vectorizer.pickle", "rb"))
+    test = vectorizer.transform([str(normalized_documents)])
+    result = model.predict(test)
+    for i in result[0]:
+        print(round(float(i), 3))
+
 elif(modelSelect=="1"):
     with open('/var/www/html/Faust/public/script/bayes', 'rb') as training_model:
         model = pickle.load(training_model)
+    result = model.predict_proba([str(normalized_documents)])
+    for i in result[0]:
+        print(round(i*100,2),",")
 elif(modelSelect=="2"):
     with open('/var/www/html/Faust/public/script/linear', 'rb') as training_model:
         model = pickle.load(training_model)
+    result = model.predict_proba([str(normalized_documents)])
+    for i in result[0]:
+        print(round(i*100,2),",")
 elif(modelSelect=="3"):
     with open('/var/www/html/Faust/public/script/logistic', 'rb') as training_model:
         model = pickle.load(training_model)
-result=model.predict_proba([str(normalized_documents)])
-for i in result[0]:
-    print(round(i*100,2),",")
+    result=model.predict_proba([str(normalized_documents)])
+    for i in result[0]:
+        print(round(i*100,2),",")
 

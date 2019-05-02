@@ -57,7 +57,7 @@
     <link href="{{URL::asset("css/cover.css")}}" rel="stylesheet">
 </head>
 <body class="text-center">
-<div class="cover-container d-flex w-50 h-75 p-3 mx-auto flex-column ">
+<div class="cover-container d-flex w-100 h-75 p-3 mx-auto flex-column ">
     <header class="masthead mb-auto">
         <div class="inner">
             <h3 class="masthead-brand"><a href="https://www.youtube.com/watch?v=VMw0EjLFPXw">Faust</a></h3>
@@ -88,7 +88,7 @@
             <div class="form-group">
                 <label for="sel1">Algoritma Seçimi:</label>
                 <select class="form-control" name="model" id="sel1">
-
+                    <option value="0">Keras Classifier</option>
                     <option value="1">Naive Bayes Classifier</option>
                     <option value="2">Linear Support Vector Machine</option>
                     <option value="3">Logistic Regression</option>
