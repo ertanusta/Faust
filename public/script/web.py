@@ -15,7 +15,7 @@ from sklearn.metrics import classification_report
 import pickle
 from keras.models import model_from_json
 
-stop_word_list=["﻿er","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
+stop_word_list=["şer","acaba","altmış","altı","ama","ilk","ancak","arada","aslında","ayrıca","bana",
                 "bazı","belki","ben","benden","beni","benim","beri","beş","bile","bin","bir","birçok",
                 "biri","birkaç","birkez","birşey","birşeyi","biz","bize","bizden","bizi","bizim","böyle",
                 "böylece","bu","buna","bunda","bundan","bunlar","bunları","bunların","bunu","bunun","burada",
@@ -77,7 +77,7 @@ if(modelSelect=="0"):
     test = vectorizer.transform([str(normalized_documents)])
     result = model.predict(test)
     for i in result[0]:
-        print(round(float(i), 3))
+        print(round(float(i), 3),",")
 
 elif(modelSelect=="1"):
     with open('/var/www/html/Faust/public/script/bayes', 'rb') as training_model:
