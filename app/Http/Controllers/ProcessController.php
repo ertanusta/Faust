@@ -22,7 +22,7 @@ class ProcessController extends Controller
                 'path'=>$process->id,
                 'model'=>(int)$request->get('model')
             ]);
-
+            dd($process->prediction);
             $process=Process::find($process->id);
             $prediction=explode(",",$process->prediction);
             return redirect()->back()->withErrors("Tahminler:".
