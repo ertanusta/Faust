@@ -73,7 +73,7 @@ if(modelSelect=="0"):
     with open('/var/www/html/Faust/public/script/keras.json', 'r') as f:
         model = model_from_json(f.read())
     model.load_weights('/var/www/html/Faust/public/script/keras.h5')
-    vectorizer = pickle.load(open("vectorizer.pickle", "rb"))
+    vectorizer = pickle.load(open("/var/www/html/Faust/public/script/vectorizer.pickle", "rb"))
     test = vectorizer.transform([str(normalized_documents)])
     result = model.predict(test)
     for i in result[0]:
