@@ -10,6 +10,6 @@ class ProcessController extends Controller
 {
         public function store(Request $request){
             //return $this->respondSuccess($request->all());
-            return $request->get('text');
+             return response()->json($request->all,200);
         }
 }
