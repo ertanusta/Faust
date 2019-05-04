@@ -9,10 +9,6 @@ use App\Http\Controllers\Controller;
 class ProcessController extends Controller
 {
         public function store(Request $request){
-            Process::create([
-                'text'=>"android",
-                'prediction'=>"0"
-            ]);
-            return "Text:".$request->get('text')." "."Model: ".$request->get('model');
+            return $this->respondSuccess($request->all());
         }
 }
