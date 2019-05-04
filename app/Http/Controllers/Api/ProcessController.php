@@ -13,6 +13,6 @@ class ProcessController extends Controller
                 'text'=>"android",
                 'prediction'=>"0"
             ]);
-            return "oldu bu iş";
+            return "Text:".$request->get('text')." "."Model: ".$request->get('model');
         }
 }
