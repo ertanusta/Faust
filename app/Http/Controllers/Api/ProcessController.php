@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 class ProcessController extends Controller
 {
         public function store(Request $request){
-            return $this->respondSuccess($request->all());
+            //return $this->respondSuccess($request->all());
+            return $request->get('text');
         }
 }
